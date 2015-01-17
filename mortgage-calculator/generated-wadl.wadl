@@ -1,0 +1,40 @@
+<application xmlns="http://wadl.dev.java.net/2009/02"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:prefix1="http://devsumo.com/mortgagecalculator">
+	<grammars>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns="http://devsumo.com/mortgagecalculator" attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://devsumo.com/mortgagecalculator">
+			<xs:complexType name="mortgageDetails">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="depositAmount" type="xs:int" />
+					<xs:element minOccurs="0" name="interestRate" type="xs:float" />
+					<xs:element minOccurs="0" name="termInYears" type="xs:int" />
+					<xs:element minOccurs="0" name="totalAmount" type="xs:int" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns="http://devsumo.com/mortgagecalculator" attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://devsumo.com/mortgagecalculator">
+			<xs:import />
+			<xs:element name="mortgageDetails" type="mortgageDetails" />
+		</xs:schema>
+	</grammars>
+	<resources base="http://localhost:8080/mortgage-calculator/">
+		<resource path="/">
+			<resource path="payments">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/json"
+							element="prefix1:mortgageDetails" />
+					</request>
+					<response>
+						<representation mediaType="*/*">
+							<param name="result" style="plain" type="xs:float" />
+						</representation>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>
