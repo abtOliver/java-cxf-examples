@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:jaxrs="http://cxf.apache.org/jaxrs" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<bean id="mortgageCalculator"
+		class="com.devsumo.examples.cxf.java.mortgagecalculator.MortgageCalculatorImpl">
+	</bean>
+
+	<bean id="wadlGenerator" class="org.apache.cxf.jaxrs.model.wadl.WadlGenerator">
+		<property name="linkJsonToXmlSchema" value="true" />
+	</bean>
+
+	<bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+		<property name="supportUnwrapped" value="true" />
+		<property name="dropRootElement" value="true" />
+		<property name="namespaceMap">
+			<map>
+				<entry key="http://devsumo.com/mortgagecalculator" value="mort" />
+			</map>
+		</property>
+	</bean>
+
+	<jaxrs:server id="cxfMortgageCalculatorService" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="mortgageCalculator" />
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<ref bean="wadlGenerator" />
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+</beans>
