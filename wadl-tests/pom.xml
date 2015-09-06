@@ -26,6 +26,7 @@
 		
 		<junit.version>4.11</junit.version>
 		<commons.beanutils.version>1.8.3</commons.beanutils.version>
+		<jvnet.wadl.version>1.1.6</jvnet.wadl.version>
 	</properties>
 
 	<dependencies>	
@@ -83,7 +84,13 @@
     		<artifactId>commons-beanutils-core</artifactId>
     		<version>${commons.beanutils.version}</version>
     		<scope>test</scope>
-			</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.ws.wadl</groupId>
+			<artifactId>wadl-client-plugin</artifactId>
+			<version>${jvnet.wadl.version}</version>
+			<scope>test</scope>
+		</dependency>    		 				
 	</dependencies>
 	
 	<build>
