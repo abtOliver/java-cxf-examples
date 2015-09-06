@@ -1,0 +1,4 @@
+# Required for the JAXB model based unit test case
+
+UserDetails
+UserNote

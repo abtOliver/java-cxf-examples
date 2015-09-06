@@ -1,0 +1,5 @@
+{
+	"userName":"JoeBloggs",
+	"fullName":"Joe Bloggs",
+	"notes": [{"label":"a note", "comment": "some notes about this user"}]
+}

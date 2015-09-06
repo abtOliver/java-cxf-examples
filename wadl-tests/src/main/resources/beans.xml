@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+		
+	<jaxrs:server id="okayUserService" address="/okay">
+		<jaxrs:serviceBeans>
+			<bean class="com.devsumo.examples.cxf.java.userservice.okay.UserService"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<bean class="org.apache.cxf.jaxrs.model.wadl.WadlGenerator">
+				<property name="applicationTitle" value="User Management Service" />
+				<property name="linkJsonToXmlSchema" value="true" />
+				<property name="addResourceAndMethodIds" value="true" />
+			</bean>
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<jaxrs:server id="slightlyBrokenUserService" address="/slightlybroken">
+		<jaxrs:serviceBeans>
+			<bean class="com.devsumo.examples.cxf.java.userservice.slightlybroken.UserService"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<bean class="org.apache.cxf.jaxrs.model.wadl.WadlGenerator">
+				<property name="applicationTitle" value="User Management Service" />
+				<property name="linkJsonToXmlSchema" value="true" />
+				<property name="addResourceAndMethodIds" value="true" />
+			</bean>
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="totallyBrokenUserService" address="/totallybroken">
+		<jaxrs:serviceBeans>
+			<bean class="com.devsumo.examples.cxf.java.userservice.totallybroken.UserService"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<bean class="org.apache.cxf.jaxrs.model.wadl.WadlGenerator">
+				<property name="applicationTitle" value="User Management Service" />
+				<property name="linkJsonToXmlSchema" value="true" />
+				<property name="addResourceAndMethodIds" value="true" />
+			</bean>
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+</beans>
