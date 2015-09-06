@@ -111,8 +111,7 @@ public abstract class AbstractWadlTest {
 		final File clientTargetDirectory = new File(clientTargetDirectoryName);
 		clientTargetDirectory.mkdirs();
 		
-		// Define a message listener to collect events from wadl2java. Sets a 
-		// canGenerateClient flag to false if an error occurs
+		// Define a message listener to collect events from wadl2java.
 		final List<String> errorMessages = new ArrayList<>();
 		final MessageListener wadl2JavaMessageListener = new MessageListener() {
 
