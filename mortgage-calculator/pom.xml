@@ -65,6 +65,17 @@
 	</dependencies>
 
 	<build>
+		<resources>
+           <resource>
+                <directory>${basedir}/src/main/docker</directory>
+                <targetPath>${basedir}/target</targetPath>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
