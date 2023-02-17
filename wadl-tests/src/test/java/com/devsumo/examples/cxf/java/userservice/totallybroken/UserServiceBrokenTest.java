@@ -14,8 +14,8 @@ import com.devsumo.examples.cxf.java.userservice.AbstractWadlTest;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:test-beans.xml"})
-public class UserServiceTest extends AbstractWadlTest {
-	public UserServiceTest() {
+public class UserServiceBrokenTest extends AbstractWadlTest {
+	public UserServiceBrokenTest() {
 		this.packageName = "com.devsumo.examples.cxf.java.userservice.totallybroken";
 		this.rootUri = "/totallybroken";
 		this.serviceBeanName = "totallyBrokenUserService";				
