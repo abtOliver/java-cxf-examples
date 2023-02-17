@@ -66,11 +66,6 @@
 
 	<build>
 		<resources>
-           <resource>
-                <directory>${basedir}/src/main/docker</directory>
-                <targetPath>${basedir}/target</targetPath>
-                <filtering>true</filtering>
-            </resource>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
                 <filtering>false</filtering>
